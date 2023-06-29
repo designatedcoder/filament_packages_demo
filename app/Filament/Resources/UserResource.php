@@ -19,9 +19,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\CheckboxList;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Awcodes\FilamentBadgeableColumn\Components\Badge;
 use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\CreateUser;
 use App\Filament\Resources\UserResource\RelationManagers;
+use Awcodes\FilamentBadgeableColumn\Components\BadgeableColumn;
 use App\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 
 class UserResource extends Resource
@@ -71,6 +73,15 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->sortable(),
+                BadgeableColumn::make('name')
+                    ->badges([
+                        Badge::make('is_active')
+                            ->label('Active')
+                            ->color('success')
+                            ->visible(fn ($record) : bool => $record->is_active ?? false),
+                    ])
+                ->searchable()
+                ->sortable(),
                 IconColumn::make('is_admin')->boolean()->sortable(),
                 TextColumn::make('roles.name')->sortable(),
                 TextColumn::make('email')->sortable(),
