@@ -16,7 +16,7 @@
             <x-filament::user-avatar :user="$user" />
         </button>
     </x-slot>
-    
+
     {{ \Filament\Facades\Filament::renderHook('user-menu.account.before') }}
 
     <x-filament::dropdown.header
@@ -27,7 +27,7 @@
     >
         {{ $accountItem?->getLabel() ?? \Filament\Facades\Filament::getUserName($user) }}
     </x-filament::dropdown.header>
-    
+
     {{ \Filament\Facades\Filament::renderHook('user-menu.account.after') }}
 
     <x-filament::dropdown.list
@@ -102,7 +102,7 @@
         <x-filament::dropdown.list.item
             :color="$logoutItem?->getColor() ?? 'secondary'"
             :icon="$logoutItem?->getIcon() ?? 'heroicon-s-logout'"
-            :action="$logoutItem?->getUrl() ?? route('filament.auth.logout')"
+            :action="$logoutItem?->getUrl() ?? route('admin.logout')"
             method="post"
             tag="form"
         >

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LogoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::post('/logout', LogoutController::class)->name('logout');
 });
