@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
         "owenvoke/blade-fontawesome": "^2.3",
+        "savannabits/filament-signature-pad": "^1.1",
         "spatie/laravel-permission": "^5.10"
     },
     "require-dev": {

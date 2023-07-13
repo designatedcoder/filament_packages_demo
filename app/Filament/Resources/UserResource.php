@@ -23,6 +23,7 @@ use Awcodes\FilamentBadgeableColumn\Components\Badge;
 use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\CreateUser;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\Components\Fields\SignaturePad;
 use Awcodes\FilamentBadgeableColumn\Components\BadgeableColumn;
 use App\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 
@@ -41,6 +42,7 @@ class UserResource extends Resource
                         TextInput::make('name')
                             ->required()
                             ->maxLength(255),
+                        SignaturePad::make('signature'),
                         Toggle::make('is_admin')
                             ->required(),
                         TextInput::make('email')
