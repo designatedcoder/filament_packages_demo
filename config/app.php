@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => Spatie\Valuestore\Valuestore::make(storage_path('app/settings.json'))->get('title'),
 
     /*
     |--------------------------------------------------------------------------

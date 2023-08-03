@@ -72,7 +72,7 @@ return [
     |
     */
 
-    'brand' => env('APP_NAME'),
+    'brand' => Spatie\Valuestore\Valuestore::make(storage_path('app/settings.json'))->get('title'),
 
     /*
     |--------------------------------------------------------------------------

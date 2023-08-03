@@ -83,4 +83,8 @@ class User extends Authenticatable
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
     }
+
+    public function canManageSettings(): bool {
+        return $this->can('manage.settings');
+    }
 }
